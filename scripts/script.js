@@ -4,10 +4,11 @@ function daysInMonth(month, year) {
   try {
     if(month > 11
     || month < 0
-    || month % 1 > 0
-    || year % 1 > 0
+    || !Number.isInteger(month)
+    || !Number.isInteger(year)
     || typeof year !== `number`
-    || typeof month !== `number`) {
+    || typeof month !== `number`
+    || month === 0){
     throw new Error('exception');
   }
     const days = new Date(`${year}`, `${month}`, `0`).getDate();
